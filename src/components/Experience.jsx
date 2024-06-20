@@ -5,17 +5,27 @@ import { Office } from "./Office";
 import { motion } from 'framer-motion-3d'
 import { useFrame, useThree } from "@react-three/fiber";
 import { animate, useMotionValue } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { framerMotionConfig } from "../../config";
+import * as THREE from 'three';
+import { useScroll } from "@react-three/drei";
+import { Projects } from "./Projects";
+import { Background } from "./Background";
 
 
 export const Experience = (props) => {
 
-	const { section, menuOpened } = props;
+	
+	const { menuOpened } = props;
 	const { viewport } = useThree();
+	const data = useScroll();
 
+	const [section, setSection] = useState(0);
+	const [characterAnimation, setCharacterAnimation] = useState("Typing");
 	const cameraPositionX = useMotionValue();
 	const cameraLookAtX = useMotionValue();
+
+	const characterContainerAboutRef = useRef();
 	
 	useEffect(() => {
 		animate(cameraPositionX, menuOpened ? -5 : 0,{
@@ -26,19 +36,86 @@ export const Experience = (props) => {
 		});
 	}, [menuOpened])
 
+	useEffect(() => {
+		setCharacterAnimation("Falling");
+		setTimeout(() => {
+			setCharacterAnimation(section === 0 ? "Typing" : "Standing");
+		},600);
+	}, [section]);
+
 	useFrame((state) => {
 		state.camera.position.x = cameraPositionX.get();
 		state.camera.lookAt(cameraLookAtX.get(), 0,0);
+
+		let curSection = Math.floor(data.scroll.current * data.pages);
+
+		if (curSection > 3){
+			curSection = 3;
+		}
+
+		if (curSection !== section){
+			setSection(curSection);
+		}
+
+		// const position = new THREE.Vector3();
+		// characterContainerAboutRef.current.getWorldPosition(position);
+		// console.log(position.x, position.y, position.z);
+
+		// const quaternion = new THREE.Quaternion();
+		// characterContainerAboutRef.current.getWorldQuaternion(quaternion);
+		// const euler = new THREE.Euler();
+		// euler.setFromQuaternion(quaternion, 'XYZ');
+		// console.log(euler.x, euler.y, euler.z);
+		// console.log(quaternion.x, quaternion.y, quaternion.z, quaternion.w);
 	});
 
-	// const { animation } = useControls({
-	// 	animation: {
-	// 	value: 'Typing',
-	// 	options: ['Typing', 'Standing', 'Falling'],
-	// 	},
-	// })
+
   return (
     <>
+	<Background />
+	<motion.group 
+	position={[1.8964747722112971, 0.20700000000000002, 2.5398856174819135]} 
+	rotation={[-3.1415926535897927, 1.3153981633974485, 3.141592653589793]}
+	animate={"" + section}
+	transition={{
+		duration: 0.5,
+	}}
+	variants={{
+		0: {
+			scaleX: 0.9,
+			scaleY: 0.9,
+			scaleZ: 0.9,
+		},
+		1: {
+			y: -viewport.height + 0.5,
+			x: 0,
+			z: 7,
+			rotateX: 0,
+			rotateY: 0,
+			rotateZ: 0,
+		},
+		2: {
+			x: -2,
+			y: -viewport.height *2 + 0.5,
+			z: 0,
+			rotateX: 0,
+			rotateY: Math.PI / 2,
+			rotateZ: 0,
+		},
+		3: {
+			x: 0.3,
+			y: -viewport.height *3 + 1,
+			z: 8.5,
+			rotateX: 0,
+			rotateY: -Math.PI/4,
+			rotateZ: 0,
+		},
+
+	}}
+	>
+	  <Avatar animation={characterAnimation}/>
+
+	</motion.group>
       {/* <OrbitControls /> */}
 	  <ambientLight intensity={1} />
 	  <motion.group 
@@ -50,6 +127,12 @@ export const Experience = (props) => {
 		}}
 	>
 	  <Office section={section}/>
+	  <group 
+	  ref={characterContainerAboutRef}
+	  name="CharacterSpot" 
+	  position={[-0.05, 0.23, -0.673]} 
+	  rotation={[-Math.PI, 0.53, -Math.PI]}>
+	</group>
 	  </motion.group>
 
 		<motion.group position={[0, -1.5, -10]}
@@ -95,48 +178,10 @@ export const Experience = (props) => {
 				/>
 			</mesh>
 		</Float>
-		<group>
-			<Avatar animation={section === 0 ? "Falling" : "Standing"}/>
-		</group>
+
 		</motion.group>
+		<Projects />
 
-
-
-
-
-
-
-
-
-	  {/* <Sky />
-	  <Environment preset="sunset" />
-	  <group position-y={-1}>
-
-		<ContactShadows opacity={0.42}
-		scale={10}
-		blur={1}
-		far={10}
-		resolution={256}
-		color={"black"}
-		/>
-
-	  <Avatar animation={animation}/>
-	  
-	  {animation === "Typing" && (
-		<mesh scale={[0.8, 0.5,0.8]} position-y={0.25}>
-		<boxGeometry />
-		<meshStandardMaterial color="white" />
-	  </mesh>
-	  )}
-		<mesh
-		scale={5}
-		rotation-x={-Math.PI * 0.5}
-		position-y={-0.001}
-		>
-			<planeGeometry />
-			<meshStandardMaterial color="white" />
-		</mesh>
-	  </group> */}
     </>
   );
 };

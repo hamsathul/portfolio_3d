@@ -1,4 +1,7 @@
 import { motion } from 'framer-motion';
+import { useAtom } from 'jotai';
+import { currentProjectAtom, projects } from './Projects';
+
 
 const Section = (props) => {
 	const { children } = props;
@@ -25,23 +28,23 @@ const Section = (props) => {
 	)
 }
 
-export const Interface = () => {
+export const Interface = (props) => {
+	const { setSection } = props;
 	return (
 		<>
 		<div className="flex flex-col items-center w-screen">
 
-		<AboutSection />
+		<AboutSection setSection={setSection}/>
 		<SkillSection />
-		<Section>
-			<h1>Projects</h1>
-		</Section>
+		<ProjectSection />
 		<ContactSection />
 		</div>
 		</>
 	)
 }
 
-const AboutSection = () => {
+const AboutSection = (props) => {
+	const { setSection } = props;
 	return (
 		<Section>
 			<h1 className="text-6xl font-extrabold leading-snug">
@@ -85,6 +88,7 @@ const AboutSection = () => {
 						duration: 1,
 						delay: 1.5,
 					}}
+					onClick={() => setSection(3)}
 				>
 				Contact Me
 			</motion.button>
@@ -130,13 +134,13 @@ const SkillSection = () => {
 	return (
 		<Section>
 			<motion.div whileInView={"visible"}>
-				<h2 className="text-5xl font-bold">
+				<h2 className="text-5xl font-bold text-white">
 					Skills
 				</h2>
 				<div className="mt-8 space-y-4">
 					{skills.map((skill,index) => (
 						<div className="w-64" key={index}>
-							<motion.h3 className="text-xl font-bold text-gray-800"
+							<motion.h3 className="text-xl font-bold text-gray-100"
 							initial={{
 								opacity: 0,
 							
@@ -178,13 +182,13 @@ const SkillSection = () => {
 			</motion.div>
 			
 			<motion.div whileInView={"visible"}>
-				<h2 className="text-5xl font-bold">
+				<h2 className="text-5xl font-bold text-white mt-2">
 					Language
 				</h2>
 				<div className="mt-8 space-y-4">
 					{languages.map((lng,index) => (
 						<div className="w-64" key={index}>
-							<motion.h3 className="text-xl font-bold text-gray-800"
+							<motion.h3 className="text-xl font-bold text-gray-100"
 							initial={{
 								opacity: 0,
 							
@@ -225,6 +229,38 @@ const SkillSection = () => {
 				</div>
 			</motion.div>
 
+		</Section>
+	)
+}
+
+const ProjectSection = () => {
+
+	const [currentProject, setCurrentProject] = useAtom(currentProjectAtom);
+
+	const nextProject = () => {
+		setCurrentProject((currentProject + 1) % projects.length);
+	
+	}
+
+	const previousProject = () => {
+		setCurrentProject((currentProject - 1 + projects.length) % projects.length);
+	}
+	return (
+		<Section>
+			<div className='flex w-full h-full gap-8 items-center justify-center'>
+				<button className='hover:text-indigo-600 transition-colors text-white'
+				onClick={previousProject}
+				>
+					← Previous
+
+				</button>
+				<h2 className='text-5xl font-bold text-white'>Projects</h2>
+				<button className='hover:text-indigo-600 transition-colors text-white'
+				onClick={nextProject}
+				>Next →
+					
+				</button>
+			</div>
 		</Section>
 	)
 }

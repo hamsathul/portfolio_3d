@@ -87,7 +87,7 @@ export function Office(props) {
 	  <mesh name="mesh434900071_4" geometry={nodes.mesh434900071_4.geometry} material={textureMaterial} />
 	  <mesh name="mesh434900071_5" geometry={nodes.mesh434900071_5.geometry} material={materials.mat11} />
 	</motion.group>
-	<group name="keyboard" position={[-0.044, 0.981, -1.346]} rotation={[0, -0.165, 0]}>
+	<group name="keyboard" position={[-0.04, 0.981, -1.316]} rotation={[0, -0.165, 0]} scale={[0.82, 1, 0.88]}>
 	  <mesh name="mesh425587018" geometry={nodes.mesh425587018.geometry} material={textureMaterial} />
 	  <mesh name="mesh425587018_1" geometry={nodes.mesh425587018_1.geometry} material={textureMaterial} />
 	  <mesh name="mesh425587018_2" geometry={nodes.mesh425587018_2.geometry} material={textureMaterial} />
@@ -103,7 +103,7 @@ export function Office(props) {
 	  <mesh name="iMac_1_1" geometry={nodes.iMac_1_1.geometry} material={textureMaterial} />
 	  <mesh name="iMac_1_2" geometry={nodes.iMac_1_2.geometry} material={textureMaterial} />
 	</motion.group>
-	<mesh name="Comp_Mouse" geometry={nodes.Comp_Mouse.geometry} material={textureMaterial} />
+	<mesh name="Comp_Mouse" geometry={nodes.Comp_Mouse.geometry} material={textureMaterial} position={[-0.08, 0, 0.01]} />
 	<group name="plant" position={[-0.78, 1.071, -1.61]}>
 	  <mesh name="mesh24448074" geometry={nodes.mesh24448074.geometry} material={textureMaterial} />
 	  <mesh name="mesh24448074_1" geometry={nodes.mesh24448074_1.geometry} material={textureMaterial} />
@@ -134,7 +134,7 @@ export function Office(props) {
 	animate={{
 		scale: section === 0 ? 1 : 0,
 		
-	}} name="Chair" position={[-0.278, 0, -0.708]} rotation={[0, -0.376, 0]}>
+	}} name="Chair" position={[-0.188, 0, -0.708]} rotation={[0, -0.376, 0]}>
 	  <mesh name="Node-Mesh" geometry={nodes['Node-Mesh'].geometry} material={textureMaterial} />
 	  <mesh name="Node-Mesh_1" geometry={nodes['Node-Mesh_1'].geometry} material={textureMaterial} />
 	</motion.group>
