@@ -11,11 +11,10 @@ import * as THREE from 'three'
 
 
 export function Avatar(props) {
-	const { animation } = props;
-	const { headFollow, cursorFollow, wireFrame } = useControls({
+	const { animation, wireFrame } = props;
+	const { headFollow, cursorFollow } = useControls({
 		headFollow: false,
-		cursorFollow: false,
-		wireFrame: false
+		cursorFollow: false
 	})
 	const group = useRef();
   const { nodes, materials } = useGLTF('/models/haris.glb')
@@ -72,3 +71,6 @@ export function Avatar(props) {
 }
 
 useGLTF.preload('/models/haris.glb')
+useGLTF.preload('/animations/Typing.fbx')
+useGLTF.preload('/animations/Standing_Idle.fbx')
+useGLTF.preload('/animations/Falling_Idle.fbx')
