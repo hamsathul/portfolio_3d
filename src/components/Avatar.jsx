@@ -17,18 +17,41 @@ export function Avatar(props) {
 		cursorFollow: false
 	})
 	const group = useRef();
-  const { nodes, materials } = useGLTF('/models/haris.glb')
+  const { nodes, materials } = useGLTF('/models/haris_tshirt.glb')
   const { animations: typingAnimation } = useFBX('/animations/Typing.fbx')
   const { animations: standingAnimation } = useFBX('/animations/Standing_Idle.fbx')
   const { animations: fallingAnimation } = useFBX('/animations/Falling_Idle.fbx')
+  const { animations: kneelingInspectionAnimation } = useFBX('/animations/KneelingInspection.fbx')
+  const { animations: lookingInspectionAnimation } = useFBX('/animations/LookingInspection.fbx')
+  const { animations: boredAnimation } = useFBX('/animations/Bored.fbx')
+  const { animations: happyAnimation } = useFBX('/animations/HappyIdle.fbx')
+  const { animations: wavingAnimation } = useFBX('/animations/Waving.fbx')
+
 
 
   typingAnimation[0].name = "Typing"
   standingAnimation[0].name = "Standing"
   fallingAnimation[0].name = "Falling"
+  kneelingInspectionAnimation[0].name = 'KneelingInspection'
+  lookingInspectionAnimation[0].name = 'StandingCrouchingInspection'
+  boredAnimation[0].name = 'Bored'
+  happyAnimation[0].name = 'Happy'
+  wavingAnimation[0].name = 'Waving'
 
 
-  const { actions } = useAnimations([typingAnimation[0], standingAnimation[0], fallingAnimation[0]], group);
+  const { actions } = useAnimations(
+    [
+      typingAnimation[0],
+      standingAnimation[0],
+      fallingAnimation[0],
+      kneelingInspectionAnimation[0],
+      lookingInspectionAnimation[0],
+      boredAnimation[0],
+      happyAnimation[0],
+      wavingAnimation[0],
+    ],
+    group,
+  )
 
   useFrame((state) => {
 	if(headFollow){
@@ -41,10 +64,12 @@ export function Avatar(props) {
 	}
   })
 
+
   useEffect(() => {
-	actions[animation].reset().fadeIn(0.5).play();
-	return () => actions[animation].reset().fadeOut(0.5);
-  },[animation]);
+  actions[animation].reset().fadeIn(0.5).play();
+  return () => actions[animation].reset().fadeOut(0.5);
+},[animation, actions]);
+
 
   useEffect(() => {
 	Object.values(materials).forEach((material) => {
@@ -54,23 +79,84 @@ export function Avatar(props) {
   return (
     <group {...props} ref={group} dispose={null}>
 		<group rotation-x={-Math.PI/2}>
-      <primitive object={nodes.Hips} />
-      <skinnedMesh frustumCulled={false} geometry={nodes.Wolf3D_Hair.geometry} material={materials.Wolf3D_Hair} skeleton={nodes.Wolf3D_Hair.skeleton} />
-      <skinnedMesh frustumCulled={false} geometry={nodes.Wolf3D_Body.geometry} material={materials.Wolf3D_Body} skeleton={nodes.Wolf3D_Body.skeleton} />
-      <skinnedMesh frustumCulled={false} geometry={nodes.Wolf3D_Outfit_Bottom.geometry} material={materials.Wolf3D_Outfit_Bottom} skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton} />
-      <skinnedMesh frustumCulled={false} geometry={nodes.Wolf3D_Outfit_Footwear.geometry} material={materials.Wolf3D_Outfit_Footwear} skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton} />
-      <skinnedMesh frustumCulled={false} geometry={nodes.Wolf3D_Outfit_Top.geometry} material={materials.Wolf3D_Outfit_Top} skeleton={nodes.Wolf3D_Outfit_Top.skeleton} />
-      <skinnedMesh frustumCulled={false} name="EyeLeft" geometry={nodes.EyeLeft.geometry} material={materials.Wolf3D_Eye} skeleton={nodes.EyeLeft.skeleton} morphTargetDictionary={nodes.EyeLeft.morphTargetDictionary} morphTargetInfluences={nodes.EyeLeft.morphTargetInfluences} />
-      <skinnedMesh frustumCulled={false} name="EyeRight" geometry={nodes.EyeRight.geometry} material={materials.Wolf3D_Eye} skeleton={nodes.EyeRight.skeleton} morphTargetDictionary={nodes.EyeRight.morphTargetDictionary} morphTargetInfluences={nodes.EyeRight.morphTargetInfluences} />
-      <skinnedMesh frustumCulled={false} name="Wolf3D_Head" geometry={nodes.Wolf3D_Head.geometry} material={materials.Wolf3D_Skin} skeleton={nodes.Wolf3D_Head.skeleton} morphTargetDictionary={nodes.Wolf3D_Head.morphTargetDictionary} morphTargetInfluences={nodes.Wolf3D_Head.morphTargetInfluences} />
-      <skinnedMesh frustumCulled={false} name="Wolf3D_Teeth" geometry={nodes.Wolf3D_Teeth.geometry} material={materials.Wolf3D_Teeth} skeleton={nodes.Wolf3D_Teeth.skeleton} morphTargetDictionary={nodes.Wolf3D_Teeth.morphTargetDictionary} morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences} />
-      <skinnedMesh frustumCulled={false} name="Wolf3D_Beard" geometry={nodes.Wolf3D_Beard.geometry} material={materials.Wolf3D_Beard} skeleton={nodes.Wolf3D_Beard.skeleton} morphTargetDictionary={nodes.Wolf3D_Beard.morphTargetDictionary} morphTargetInfluences={nodes.Wolf3D_Beard.morphTargetInfluences} />
+		<primitive object={nodes.Hips} />
+        <skinnedMesh
+          geometry={nodes.Wolf3D_Glasses.geometry}
+          material={materials.Wolf3D_Glasses}
+          skeleton={nodes.Wolf3D_Glasses.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.Wolf3D_Outfit_Top.geometry}
+          material={materials.Wolf3D_Outfit_Top}
+          skeleton={nodes.Wolf3D_Outfit_Top.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.Wolf3D_Outfit_Bottom.geometry}
+          material={materials.Wolf3D_Outfit_Bottom}
+          skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.Wolf3D_Outfit_Footwear.geometry}
+          material={materials.Wolf3D_Outfit_Footwear}
+          skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.Wolf3D_Body.geometry}
+          material={materials.Wolf3D_Body}
+          skeleton={nodes.Wolf3D_Body.skeleton}
+        />
+        <skinnedMesh
+          name='EyeLeft'
+          geometry={nodes.EyeLeft.geometry}
+          material={materials.Wolf3D_Eye}
+          skeleton={nodes.EyeLeft.skeleton}
+          morphTargetDictionary={nodes.EyeLeft.morphTargetDictionary}
+          morphTargetInfluences={nodes.EyeLeft.morphTargetInfluences}
+        />
+        <skinnedMesh
+          name='EyeRight'
+          geometry={nodes.EyeRight.geometry}
+          material={materials.Wolf3D_Eye}
+          skeleton={nodes.EyeRight.skeleton}
+          morphTargetDictionary={nodes.EyeRight.morphTargetDictionary}
+          morphTargetInfluences={nodes.EyeRight.morphTargetInfluences}
+        />
+        <skinnedMesh
+          name='Wolf3D_Head'
+          geometry={nodes.Wolf3D_Head.geometry}
+          material={materials.Wolf3D_Skin}
+          skeleton={nodes.Wolf3D_Head.skeleton}
+          morphTargetDictionary={nodes.Wolf3D_Head.morphTargetDictionary}
+          morphTargetInfluences={nodes.Wolf3D_Head.morphTargetInfluences}
+        />
+        <skinnedMesh
+          name='Wolf3D_Teeth'
+          geometry={nodes.Wolf3D_Teeth.geometry}
+          material={materials.Wolf3D_Teeth}
+          skeleton={nodes.Wolf3D_Teeth.skeleton}
+          morphTargetDictionary={nodes.Wolf3D_Teeth.morphTargetDictionary}
+          morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
+        />
+        <skinnedMesh
+          name='Wolf3D_Beard'
+          geometry={nodes.Wolf3D_Beard.geometry}
+          material={materials.Wolf3D_Beard}
+          skeleton={nodes.Wolf3D_Beard.skeleton}
+          morphTargetDictionary={nodes.Wolf3D_Beard.morphTargetDictionary}
+          morphTargetInfluences={nodes.Wolf3D_Beard.morphTargetInfluences}
+        />
 	  </group>
     </group>
   )
 }
 
-useGLTF.preload('/models/haris.glb')
+useGLTF.preload('/models/haris_tshirt.glb')
 useGLTF.preload('/animations/Typing.fbx')
 useGLTF.preload('/animations/Standing_Idle.fbx')
 useGLTF.preload('/animations/Falling_Idle.fbx')
+useGLTF.preload('/animations/KneelingInspection.fbx')
+useGLTF.preload('/animations/LookingInspection.fbx')
+useGLTF.preload('/animations/Bored.fbx')
+useGLTF.preload('/animations/HappyIdle.fbx')
+useGLTF.preload('/animations/Waving.fbx')
+

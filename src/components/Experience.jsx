@@ -44,7 +44,25 @@ export const Experience = (props) => {
 	useEffect(() => {
 		setCharacterAnimation("Falling");
 		setTimeout(() => {
-			setCharacterAnimation(section === 0 ? "Typing" : "Standing");
+			// setCharacterAnimation(section === 0 ? "Typing" : "Happy");
+			if (section === 0) {
+				setCharacterAnimation('Typing');
+			  } else if (section === 1) {
+				setCharacterAnimation('Happy');
+			} else if (section === 2) {
+			  setCharacterAnimation('KneelingInspection');
+			  } else if (section === 3) {
+				setCharacterAnimation('Bored');
+			  }
+			  else if (section === 4) {
+				setCharacterAnimation('StandingCrouchingInspection');
+			  }
+			  else if (section === 5) {
+				setCharacterAnimation('Happy');
+			  }			 
+			   else if (section === 6) {
+				setCharacterAnimation('Waving');
+			  }
 		},600);
 	}, [section]);
 
@@ -54,8 +72,8 @@ export const Experience = (props) => {
 
 		let curSection = Math.floor(data.scroll.current * data.pages);
 
-		if (curSection > 3){
-			curSection = 3;
+		if (curSection > 6){
+			curSection = 6;
 		}
 
 		if (curSection !== section){
@@ -79,7 +97,7 @@ export const Experience = (props) => {
 
   return (
     <>
-	<Background />
+	{/* <Background /> */}
 	<motion.group 
 	ref={characterGroup}
 	position={[1.8964747722112971, 0.20700000000000002, 2.5398856174819135]} 
@@ -96,7 +114,29 @@ export const Experience = (props) => {
 			scaleZ: officeScaleRatio,
 		},
 		1: {
-			y: -viewport.height + 0.5,
+			y: -viewport.height + 1.2,
+			x: isMobile ? 0.3 : 2,
+			z: 7,
+			rotateX: 0,
+			rotateY: isMobile ? -Math.PI / 4: -Math.PI/4 	,
+			rotateZ: 0,
+			scaleX: isMobile ? 1.2: 1,
+			scaleY: isMobile ? 1.2: 1,
+			scaleZ: isMobile ? 1.2: 1,
+		},
+		2: {
+			y: -viewport.height * 2 + 2,
+			x: isMobile ? 0.3 : -2,
+			z: 7,
+			rotateX: 0,
+			rotateY: isMobile ? -Math.PI / 4: Math.PI/2.5	,
+			rotateZ: 0,
+			scaleX: isMobile ? 1.2: 1,
+			scaleY: isMobile ? 1.2: 1,
+			scaleZ: isMobile ? 1.2: 1,
+		},
+		3: {
+			y: -viewport.height * 3 + 0.8,
 			x: isMobile ? 0.3 : 0,
 			z: 7,
 			rotateX: 0,
@@ -106,9 +146,9 @@ export const Experience = (props) => {
 			scaleY: isMobile ? 1.2: 1,
 			scaleZ: isMobile ? 1.2: 1,
 		},
-		2: {
+		4: {
 			x: isMobile ? -1.4: -2,
-			y: -viewport.height *2 + 0.5,
+			y: -viewport.height *4 + 1,
 			z: 0,
 			rotateX: 0,
 			rotateY: Math.PI / 2,
@@ -117,12 +157,26 @@ export const Experience = (props) => {
 			scaleY: 1,
 			scaleZ: 1,
 		},
-		3: {
-			x: 0.24,
-			y: -viewport.height *3 + 1,
-			z: 8.5,
+
+		5: {
+			y: -viewport.height * 5 + 1,
+			x: isMobile ? 0.3 : 2,
+			z: 7,
 			rotateX: 0,
-			rotateY: -Math.PI/4,
+			rotateY: isMobile ? -Math.PI / 4: -Math.PI/4 	,
+			rotateZ: 0,
+			scaleX: isMobile ? 1.2: 1,
+			scaleY: isMobile ? 1.2: 1,
+			scaleZ: isMobile ? 1.2: 1,
+		},
+		
+		
+		6: {
+			x: 0.5,
+			y: -viewport.height *6 + 1.2,
+			z: 7.5,
+			rotateX: 0,
+			rotateY: -Math.PI/7,
 			rotateZ: 0,
 			scaleX: 1,
 			scaleY: 1,
@@ -131,7 +185,7 @@ export const Experience = (props) => {
 
 	}}
 	>
-	  <Avatar animation={characterAnimation} wireFrame={section === 1}/>
+	  <Avatar animation={characterAnimation} />
 
 	</motion.group>
 
@@ -164,51 +218,9 @@ export const Experience = (props) => {
 	</group>
 	  </motion.group>
 
-		<motion.group position={[0, isMobile ? -viewport.height :-1.5 * officeScaleRatio, -10]}
-		animate={{
-			z: section === 1 ? 0 : -10,
-			y: section === 1 ? -viewport.height : (isMobile ? -viewport.height : -1.5),
-		}}
-		>
-		<directionalLight position={[-5,3,5]} intensity={0.4} />
-		<Float>
-			<mesh position={[1, -3, -15]} scale={[2,2,2]}>
-				<sphereGeometry />
-				<MeshDistortMaterial
-				opacity={0.8}
-				transparent
-				distort={0.4}
-				speed={4}
-				color="red"
-				/>
-			</mesh>
-		</Float>
-		<Float>
-			<mesh position={[3, 1, -18]} scale={[3,3,3]}>
-				<sphereGeometry />
-				<MeshDistortMaterial
-				opacity={0.8}
-				transparent
-				distort={1}
-				speed={5}
-				color="yellow"
-				/>
-			</mesh>
-		</Float>
-		<Float>
-			<mesh position={[-3, -1, -11]} scale={[1.4,1.4,1.4]}>
-				<boxGeometry />
-				<MeshWobbleMaterial
-				opacity={0.8}
-				transparent
-				factor={1}
-				speed={4}
-				color="blue"
-				/>
-			</mesh>
-		</Float>
+		
 
-		</motion.group>
+		
 		<Projects />
 
     </>

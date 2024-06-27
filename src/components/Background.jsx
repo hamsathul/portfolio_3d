@@ -8,7 +8,7 @@ export const Background = () => {
 
 	const material = useRef();
 	const color = useRef({
-		color: "#b9bcff",
+		color: "black",
 	});
 
 	const data = useScroll();
@@ -23,13 +23,19 @@ export const Background = () => {
 	useEffect(() => {
 		tl.current = gsap.timeline();
 		tl.current.to(color.current, {
-			color: '#212121',
+			color: '#gray',
 		});
 		tl.current.to(color.current, {
-			color: '#7a7ca5',
+			color: '#gold',
 		});
 		tl.current.to(color.current, {
-			color: '#9b96dd',
+			color: '#green',
+		});
+		tl.current.to(color.current, {
+			color: 'pink',
+		});
+		tl.current.to(color.current, {
+			color: 'black',
 		});
 
 	}, []);
@@ -40,7 +46,7 @@ export const Background = () => {
 				<meshBasicMaterial 
 				ref={material}
 				side={THREE.BackSide}
-				toneMapped={false}
+				toneMapped={true}
 				/>
 			</Sphere>
 		</group>
