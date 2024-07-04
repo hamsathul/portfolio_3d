@@ -3,23 +3,30 @@ import { Section } from "./Interface";
 
 const educationData = [
 	{
-		institution: "Harvard University",
-		degree: "Bachelor of Science in Computer Science",
-		year: "2015 - present",
-		description: "Focused on software engineering, algorithms, and data structures."
+		institution: "42 Abudhabi",
+		degree: "Computer Science",
+		year: "2022 - present",
+		description: "42 network of schools is rated as the top coding school in the world for software development."
 	},
 	{
-		institution: "MIT",
-		degree: "Master of Science in Aeronautical Engineering",
-		year: "2019 - 2021",
-		description: "Specialized in aerodynamics and computational fluid dynamics."
+		institution: "NALSAR University of Law, Hyderabad, India",
+		degree: "Post Graduate Diploma in Aviation Law and Air Transport Management",
+		year: "2012 - 2013",
+		description: "Specialized in aviation law, air transport management, and aviation safety."
 	},
 	{
-		institution: "MIT",
-		degree: "Master of Science in Aeronautical Engineering",
-		year: "2019 - 2021",
-		description: "Specialized in aerodynamics and computational fluid dynamics."
-	}
+		institution: "Emirates Aviation University, Dubai, UAE",
+		degree: "Flight Operations Management",
+		year: "2008 - 2008",
+		description: "Specialized in flight operations management, aviation safety, and air traffic control."
+	},
+	{
+		institution: "Hindustan College of Engineering, Chennai, India",
+		degree: "Bachelor of Engineering in Aeronautical Engineering",
+		year: "2004 - 2008",
+		description: "Specialized in aeronautical engineering, aircraft design, and aviation safety."
+	},
+	
 ];
 
 
@@ -64,6 +71,7 @@ const Education = ( {educationData}) => {
 	const EducationSection = () => {
 		return (
 			<Section>
+				<div className="flex flex-col md:flex-row w-full">
 			<motion.div className="w-full" whileInView={"visible"}>
 			  <h2 className="text-3xl md:text-5xl font-bold text-white mb-12 text-center">
 				Education & Certifications
@@ -73,6 +81,8 @@ const Education = ( {educationData}) => {
 	
 			  </div>
 			</motion.div>
+					<div className="w-10/12"></div>
+			</div>
 		  </Section>
 		);
 	  };

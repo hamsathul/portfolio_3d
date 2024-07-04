@@ -1,24 +1,25 @@
 import { motion } from "framer-motion";
 import { Section } from "./Interface";
 
+
 const aviationExperience = [
 	{
 	  role: "Air Safety Officer",
 	  company: "Directorate General of Civil Aviation (DGCA), India",
 	  period: "2010 - 2012",
-	  description: "Managed flight planning, weather analysis, and crew briefings. Ensured compliance with aviation regulations and safety standards."
+	  description: "Conducted safety inspections, audits, and investigations. Ensured compliance with aviation regulations and safety standards."
 	},
 	{
 	  role: "Technical Assistant",
 	  company: "Air Works, Mumbai, India",
 	  period: "2009 - 2009",
-	  description: "Managed flight planning, weather analysis, and crew briefings. Ensured compliance with aviation regulations and safety standards."
+	  description: "Assisted in aircraft maintenance, repair, and overhaul (MRO) activities. Ensured compliance with aviation regulations and safety standards."
 	},
 	{
 	  role: "Quality Control & Technical Services Intern",
 	  company: "Air India, Mumbai, India",
 	  period: "2009 - 2010",
-	  description: "Managed flight planning, weather analysis, and crew briefings. Ensured compliance with aviation regulations and safety standards."
+	  description: "Assisted in quality control, technical services, and aircraft maintenance activities. Ensured compliance with aviation regulations and safety standards."
 	},
 	// Add more aviation experiences here if needed
   ];
@@ -28,25 +29,25 @@ const aviationExperience = [
 	  role: "Full Stack Developer",
 	  company: "Freelance",
 	  period: "2018 - present",
-	  description: "Founded and led a technology startup focusing on AI-driven solutions for the aviation industry. Managed a team of 15 and secured seed funding."
+	  description: "Developed web applications for clients using various frameworks and techologies. Managed end-to-end project delivery and client communication."
 	},
 	{
 	  role: "Director",
-	  company: "Seed Innovations",
+	  company: "Seed Innovations, Kerala, India",
 	  period: "2023 - present",
-	  description: "Founded and led a technology startup focusing on AI-driven solutions for the aviation industry. Managed a team of 15 and secured seed funding."
+	  description: "Managing a team for developing innovative products and services. Leading the company's vision, strategy, and growth."
 	},
 	{
 	  role: "Managing Partner",
-	  company: "Blue Diamond Garments",
+	  company: "Blue Diamond Garments, Kerala, India",
 	  period: "2019 - present",
-	  description: "Founded and led a technology startup focusing on AI-driven solutions for the aviation industry. Managed a team of 15 and secured seed funding."
+	  description: "Blue Diamond Garments focus on manufacturing and marketing infant beds, baby carriers, clothing, and other baby products."
 	},
 	{
 	  role: "Managing Partner",
-	  company: "Blue Diamond Tailoring LLC",
+	  company: "Blue Diamond Tailoring LLC, Abu Dhabi, UAE",
 	  period: "2013 - present",
-	  description: "Founded and led a technology startup focusing on AI-driven solutions for the aviation industry. Managed a team of 15 and secured seed funding."
+	  description: "Blue Diamond Tailoring LLC is my family business that specializes in manufacture, wholesale and reatil of abayas and sheilas all over the GCC."
 	},
 	// Add more entrepreneurship experiences here if needed
   ];
@@ -93,6 +94,9 @@ export default ExperienceTimeline;
   const AviationWorkExperienceSection = () => {
 	return (
 	    <Section>
+			<div className="flex flex-col md:flex-row w-full">
+
+			<div className="w-10/12"></div>
 		<motion.div className="w-full" whileInView={"visible"}>
 		  <h2 className="text-3xl md:text-5xl font-bold text-white mb-12 text-center">
 			Aviation Experience
@@ -102,15 +106,19 @@ export default ExperienceTimeline;
 
 		  </div>
 		</motion.div>
+			</div>
+		
 	  </Section>
 	);
   };
   const EnterpreunershipWorkExperienceSection = () => {
 	return (
 	    <Section>
+			<div className="flex flex-col items-start md:flex-row w-full">
+
 		<motion.div className="w-full" whileInView={"visible"}>
 		  <h2 className="text-3xl md:text-5xl font-bold text-white mb-12 text-center">
-		  Freelance and Entrepreneurial Ventures
+		  My Business Ventures
 		  </h2>
 		  <div className="space-y-16">
 		
@@ -118,6 +126,8 @@ export default ExperienceTimeline;
 			</div>
 		
 		</motion.div>
+<div className="w-10/12"></div>
+		</div>
 	  </Section>
 	);
   };

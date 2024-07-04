@@ -11,6 +11,7 @@ import * as THREE from 'three';
 import { useScroll } from "@react-three/drei";
 import { Projects } from "./Projects";
 import { Background } from "./Background";
+import { Airplane } from "./Airplane";
 
 
 export const Experience = (props) => {
@@ -31,6 +32,8 @@ export const Experience = (props) => {
 
 	const characterContainerAboutRef = useRef();
 	const characterGroup = useRef();
+
+	
 	
 	useEffect(() => {
 		animate(cameraPositionX, menuOpened ? -5 : 0,{
@@ -115,25 +118,25 @@ export const Experience = (props) => {
 		},
 		1: {
 			y: -viewport.height + 1.2,
-			x: isMobile ? 0.3 : 2,
+			x: isMobile ? 0.3 : 1.4,
 			z: 7,
 			rotateX: 0,
-			rotateY: isMobile ? -Math.PI / 4: -Math.PI/4 	,
+			rotateY: isMobile ? -Math.PI / 4: -Math.PI/10 	,
 			rotateZ: 0,
 			scaleX: isMobile ? 1.2: 1,
 			scaleY: isMobile ? 1.2: 1,
 			scaleZ: isMobile ? 1.2: 1,
 		},
 		2: {
-			y: -viewport.height * 2 + 2,
-			x: isMobile ? 0.3 : -2,
-			z: 7,
+			y: -viewport.height * 2 + 1 ,
+			x: isMobile ? 0.3 : -1,
+			z: 5.7,
 			rotateX: 0,
-			rotateY: isMobile ? -Math.PI / 4: Math.PI/2.5	,
+			rotateY: isMobile ? -Math.PI / 4: Math.PI/2	,
 			rotateZ: 0,
-			scaleX: isMobile ? 1.2: 1,
-			scaleY: isMobile ? 1.2: 1,
-			scaleZ: isMobile ? 1.2: 1,
+			scaleX: isMobile ? 1.2: 0.25,
+			scaleY: isMobile ? 1.2: 0.2,
+			scaleZ: isMobile ? 1.2: 0.25,
 		},
 		3: {
 			y: -viewport.height * 3 + 0.8,
@@ -185,7 +188,7 @@ export const Experience = (props) => {
 
 	}}
 	>
-	  <Avatar animation={characterAnimation} />
+	  <Avatar animation={characterAnimation}  />
 
 	</motion.group>
 
@@ -221,7 +224,20 @@ export const Experience = (props) => {
 		
 
 		
-		<Projects />
+	<Projects />
+	
+	<motion.group
+        
+        position={[-1.8, -viewport.height * 2 + 1, 4.5]}
+        scale={[0.04, 0.04, 0.04]}
+        rotation-y={Math.PI / 3}
+       
+      >
+        <Airplane section={section} />
+      </motion.group>
+
+      
+	
 
     </>
   );
