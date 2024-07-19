@@ -8,7 +8,7 @@ export const ContactSection = () => {
 
 	return (
 		<Section>
-			<h2 className="text-3xl md:text-5xl text-white font-bold">Contact Me</h2>
+			<h2 className="text-3xl md:text-5xl text-white font-bold mb-32 md:mb-0">Contact Me</h2>
 			<div className="mt-8 p-8 rounded-md bg-white bg-opacity-50 w-96 max-w-full">
 					{state.succeeded ? (<p className="text-green-500">Thank you for your message. I will get back to you soon.</p>)
 					: (

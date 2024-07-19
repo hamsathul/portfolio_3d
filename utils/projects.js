@@ -15,6 +15,13 @@ export const projectsData = [
 		languages: ["TypeScript", "Next.js"],
 	},
 	{
+		title: "BDICC",
+		url: "https://www.bluediamondicc.com/",
+		image: "/projects/bdicc.png",
+		description: "Blue Diamond ICC is a website for my convention center located in Kerala, India. It is built using Next.js.",
+		languages: ["JavaScript", "Next.js"],
+	},
+	{
 		title: "Tekloom",
 		url: "https://tekloom.com/",
 		image: "/projects/tekloom.png",
@@ -34,6 +41,41 @@ export const projectsData = [
 		image: "/projects/seedinnvoations.png",
 		description: "Seed Innovations is a website for a technology company. It is built using Next.js.",
 		languages: ["JavaScript", "Next.js", "MongoDb"],
+	},
+	{
+		title: "E-Janamaithri",
+		url: "https://github.com/hamsathul/e-janamaithri",
+		image: "/projects/ejanamaithri.png",
+		description: "E-Janamaithri is a web application that helps the police department to manage the complaints and cases. It is built using Django.",
+		languages: ["Python", "Django", "Sqlite"],
+	},
+	{
+		title: "BD Tailoring",
+		url: "https://www.bluediamond.ae/",
+		image: "/projects/bluediamondae.png",
+		description: "Blue Diamond Tailoring is a website for my abaya manufacturing company. It is built using Next.js.",
+		languages: ["JavaScript", "Next.js"],
+	},
+	{
+		title: "Moi App (Hackathon Project)",
+		url: "https://moi-app.vercel.app/",
+		image: "/projects/moi.png",
+		description: "Moi App is our teams implementation of our hackathon project. it is built using Next.js, three.js.",
+		languages: ["JavaScript", "Next.js", "Three.js"],
+	},
+	{
+		title: "Cub3D",
+		url: "https://github.com/samiyazbr/Cub3D",
+		image: "/projects/42logo.jpg",
+		description: "cub3d is a 3D maze game built using C and Raycasting algorithm. It is a project from 42 school curriculum.",
+		languages: ["C", "42Project"],
+	},
+	{
+		title: "ft_irc",
+		url: "https://github.com/Aztaro97/ft_irc",
+		image: "/projects/42logo.jpg",
+		description: "ft_irc is a simple IRC server and client built using C++. It is a project from 42 school curriculum.",
+		languages: ["C++", "42Project"],
 	},
 
 ];

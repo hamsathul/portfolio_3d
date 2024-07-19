@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { Experience } from "./components/Experience";
-import { Scroll, ScrollControls } from "@react-three/drei";
+import { Loader, Scroll, ScrollControls } from "@react-three/drei";
 import { Interface } from "./components/Interface";
 import { useState, useEffect, Suspense } from "react";
 import { ScrollManager } from "./components/ScrollManager";
@@ -23,8 +23,8 @@ function App() {
 
   return (
 	<>
-
 	<LoadingScreen started={started} setStarted={setStarted}/>
+	{/* <Loader /> */}
 	<MotionConfig
 	transition={{
 		...framerMotionConfig

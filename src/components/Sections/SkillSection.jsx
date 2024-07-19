@@ -60,7 +60,7 @@ export const SkillSection = () => {
                     <h2 className="text-3xl md:text-5xl font-bold text-white">
                         Skills
                     </h2>
-                    <div className="mt-8 space-y-4">
+                    <div className="mt-8 space-y-4 w-1/2 md:w-full">
                         {skills.map((skill, index) => (
                             <div className="w-full" key={index}>
                                 <motion.h3 
@@ -111,7 +111,7 @@ export const SkillSection = () => {
                     <h2 className="text-3xl md:text-5xl font-bold text-white mt-8 md:mt-0">
                         Languages
                     </h2>
-                    <div className="mt-8 space-y-4">
+                    <div className="mt-8 space-y-4 w-1/2 md:w-full">
                         {languages.map((lng, index) => (
                             <div className="w-full" key={index}>
                                 <motion.h3 

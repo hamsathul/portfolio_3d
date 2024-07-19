@@ -33,16 +33,27 @@ export const Experience = (props) => {
 	const characterContainerAboutRef = useRef();
 	const characterGroup = useRef();
 
+	const sectionAnimations = {
+		0: { cameraPosX: -5, cameraLookX: 5 },
+		1: { cameraPosX: -4, cameraLookX: 7 },
+		2: { cameraPosX: -5, cameraLookX: 5 },
+		3: { cameraPosX: 0, cameraLookX: 0 },
+		4: { cameraPosX: 0, cameraLookX: 0 },
+		5: { cameraPosX: -4, cameraLookX: 7 },
+		6: { cameraPosX: -3, cameraLookX: 15 },
+	};
+
 	
 	
 	useEffect(() => {
-		animate(cameraPositionX, menuOpened ? -5 : 0,{
+		const { cameraPosX, cameraLookX} = sectionAnimations[section]
+		animate(cameraPositionX, menuOpened ? cameraPosX : 0,{
 			...framerMotionConfig
 		});
-		animate(cameraLookAtX, menuOpened ? 5 : 0,{
+		animate(cameraLookAtX, menuOpened ? cameraLookX: 0,{
 			...framerMotionConfig
 		});
-	}, [menuOpened])
+	}, [menuOpened, section])
 
 	useEffect(() => {
 		setCharacterAnimation("Falling");
@@ -117,73 +128,74 @@ export const Experience = (props) => {
 			scaleZ: officeScaleRatio,
 		},
 		1: {
-			y: -viewport.height + 1.2,
-			x: isMobile ? 0.3 : 1.4,
+			y: isMobile ? -viewport.height + 1.6 :-viewport.height + 1.2,
+			x: isMobile ? 0.3 : 1,
 			z: 7,
 			rotateX: 0,
-			rotateY: isMobile ? -Math.PI / 4: -Math.PI/10 	,
+			rotateY: isMobile ? -Math.PI/12: -Math.PI/4 	,
 			rotateZ: 0,
-			scaleX: isMobile ? 1.2: 1,
-			scaleY: isMobile ? 1.2: 1,
-			scaleZ: isMobile ? 1.2: 1,
+			scaleX: isMobile ? 0.5: 0.75,
+			scaleY: isMobile ? 0.5: 0.75,
+			scaleZ: isMobile ? 0.5: 0.75,
 		},
 		2: {
 			y: -viewport.height * 2 + 1 ,
-			x: isMobile ? 0.3 : -1,
-			z: 5.7,
+			x: isMobile ? 0.3 : 1.8,
+			z: isMobile ? 5:5.7,
 			rotateX: 0,
-			rotateY: isMobile ? -Math.PI / 4: Math.PI/2	,
+			rotateY: isMobile ? -Math.PI/2 : Math.PI/2	,
 			rotateZ: 0,
-			scaleX: isMobile ? 1.2: 0.25,
-			scaleY: isMobile ? 1.2: 0.2,
-			scaleZ: isMobile ? 1.2: 0.25,
+			scaleX: isMobile ? 0.1: 0.25,
+			scaleY: isMobile ? 0.1: 0.2,
+			scaleZ: isMobile ? 0.1: 0.25,
 		},
 		3: {
-			y: -viewport.height * 3 + 0.8,
+			y: isMobile ? -viewport.height * 3 + 1.6: -viewport.height * 3 + 0.9,
 			x: isMobile ? 0.3 : 0,
 			z: 7,
 			rotateX: 0,
-			rotateY: isMobile ? -Math.PI / 4: 0	,
+			rotateY: isMobile ? -Math.PI / 12: 0	,
 			rotateZ: 0,
-			scaleX: isMobile ? 1.2: 1,
-			scaleY: isMobile ? 1.2: 1,
-			scaleZ: isMobile ? 1.2: 1,
+			scaleX: isMobile ? 0.5: 0.75,
+			scaleY: isMobile ? 0.5: 0.75,
+			scaleZ: isMobile ? 0.5: 0.75,
 		},
 		4: {
-			x: isMobile ? -1.4: -2,
-			y: -viewport.height *4 + 1,
+			x: isMobile ? -1: -3.5,
+			y: -viewport.height *4 - 1,
 			z: 0,
 			rotateX: 0,
 			rotateY: Math.PI / 2,
 			rotateZ: 0,
-			scaleX: 1,
-			scaleY: 1,
-			scaleZ: 1,
+			scaleX: isMobile ? 1: 1,
+			scaleY: isMobile ? 1: 1,
+			scaleZ: isMobile ? 1: 1,
 		},
 
 		5: {
-			y: -viewport.height * 5 + 1,
-			x: isMobile ? 0.3 : 2,
+		
+			y: isMobile ? -viewport.height * 5 + 1.6 :-viewport.height * 5 + 1.5,
+			x: isMobile ? 0.3 : 1,
 			z: 7,
 			rotateX: 0,
-			rotateY: isMobile ? -Math.PI / 4: -Math.PI/4 	,
+			rotateY: isMobile ? -Math.PI/12: -Math.PI/4 	,
 			rotateZ: 0,
-			scaleX: isMobile ? 1.2: 1,
-			scaleY: isMobile ? 1.2: 1,
-			scaleZ: isMobile ? 1.2: 1,
+			scaleX: isMobile ? 0.5: 0.75,
+			scaleY: isMobile ? 0.5: 0.75,
+			scaleZ: isMobile ? 0.5: 0.75,
 		},
 		
 		
 		6: {
-			x: 0.5,
-			y: -viewport.height *6 + 1.2,
+			x: isMobile ? 0.3: 0.5,
+			y: isMobile ? -viewport.height *6 + 2.725 : -viewport.height *6 + 1.5,
 			z: 7.5,
 			rotateX: 0,
-			rotateY: -Math.PI/7,
+			rotateY: -Math.PI/5,
 			rotateZ: 0,
-			scaleX: 1,
-			scaleY: 1,
-			scaleZ: 1,
+			scaleX: isMobile ? 0.15: 0.75,
+			scaleY: isMobile ? 0.15: 0.75,
+			scaleZ: isMobile ? 0.15: 0.75,
 		},
 
 	}}
@@ -220,21 +232,20 @@ export const Experience = (props) => {
 	  rotation={[-Math.PI, 0.53, -Math.PI]}>
 	</group>
 	  </motion.group>
-
 		
-
-		
-	<Projects />
+	<Projects section={section} isMobile={isMobile}/>
 	
 	<motion.group
-        
-        position={[-1.8, -viewport.height * 2 + 1, 4.5]}
-        scale={[0.04, 0.04, 0.04]}
-        rotation-y={Math.PI / 3}
-       
-      >
-        <Airplane section={section} />
-      </motion.group>
+      position={[
+        isMobile ? 0.6 : 1, 
+        isMobile ? -viewport.height * 2 + 1 : -viewport.height * 2 + 1, 
+        isMobile ? 4.5 : 4.5 
+      ]}
+      scale={isMobile ? [0.017, 0.017, 0.017] : [0.04, 0.04, 0.04]} 
+      rotation-y={isMobile ? -Math.PI / 10 : Math.PI / 3} 
+    >
+      <Airplane section={section} />
+    </motion.group>
 
       
 	

@@ -4,7 +4,6 @@ import { useAtom } from 'jotai';
 import { currentProjectAtom, selectedLanguageAtom } from '../Projects';
 import { projectsData } from "../../../utils/projects.js";
 
-
 export const ProjectSection = () => {
     const [currentProject, setCurrentProject] = useAtom(currentProjectAtom);
     const [selectedLanguage, setSelectedLanguage] = useAtom(selectedLanguageAtom);
@@ -37,13 +36,13 @@ export const ProjectSection = () => {
     };
 
     return (
-        <Section>
-            <div className='flex flex-col w-full h-full gap-8 items-center justify-center mt-20'>
-                <div className='flex gap-4'>
+        <Section mobileTop>
+            <div className='flex flex-col w-full h-full gap-8 items-center justify-center px-4 py-8 mt-96'>
+                <div className='flex flex-wrap gap-2 justify-center mt-12'>
                     {languages.map((lang) => (
                         <button
                             key={lang}
-                            className={`px-4 py-2 rounded ${
+                            className={`px-3 py-1.5 text-sm rounded ${
                                 selectedLanguage === lang
                                     ? 'bg-indigo-600 text-white'
                                     : 'bg-gray-200 text-black hover:bg-gray-300'
@@ -54,17 +53,19 @@ export const ProjectSection = () => {
                         </button>
                     ))}
                 </div>
-                <div className='flex w-full gap-8 items-center justify-center'>
+                <div className='flex flex-col sm:flex-row w-full gap-4 items-center justify-center'>
                     <button
-                        className='hover:text-indigo-600 transition-colors text-white'
+                        className='hover:text-indigo-600 transition-colors text-white text-lg'
                         onClick={previousProject}
                         disabled={filteredProjects.length <= 1}
                     >
                         ← Previous
                     </button>
-                    <h2 className='text-3xl md:text-5xl font-bold text-white'>Projects</h2>
+                    <h2 className='text-2xl sm:text-3xl md:text-5xl font-bold text-white text-center'>
+                        Projects
+                    </h2>
                     <button
-                        className='hover:text-indigo-600 transition-colors text-white'
+                        className='hover:text-indigo-600 transition-colors text-white text-lg'
                         onClick={nextProject}
                         disabled={filteredProjects.length <= 1}
                     >

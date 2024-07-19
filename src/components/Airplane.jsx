@@ -5,7 +5,7 @@ import { animate, useMotionValue } from 'framer-motion';
 import { useFrame } from '@react-three/fiber';
 
 export function Airplane(props) {
-  const { nodes, materials } = useGLTF('/public/models/airplane.glb')
+  const { nodes, materials } = useGLTF('/models/airplane.glb')
   const { section } = props;
   const groupRef = useRef();
   const scaleMotionValue = useMotionValue(0);
@@ -107,4 +107,4 @@ export function Airplane(props) {
   )
 }
 
-useGLTF.preload('/public/models/airplane.glb')
+useGLTF.preload('/models/airplane.glb')

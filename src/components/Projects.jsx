@@ -13,6 +13,7 @@ const Project = (props) => {
 	const background = useRef();
 	const bgOpacity = useMotionValue(0.4);
 	const scale = useMotionValue(1);
+
   
 	useEffect(() => {
 	  animate(bgOpacity, highlighted ? 0.7 : 0.4);
@@ -30,30 +31,30 @@ const Project = (props) => {
 		onClick={() => window.open(project.url, "_blank")}
 	  >
 		<mesh position-z={-0.001} ref={background}>
-		  <planeGeometry args={[2.2, 2]} />
+		  <planeGeometry args={[7, 2]} />
 		  <meshBasicMaterial color={"black"} transparent opacity={0.4} />
 		</mesh>
 		<Image
-		  scale={[2, 1.2, 1]}
+		  scale={[6, 3.3, 1]}
 		  url={project.image}
 		  toneMapped={false}
 		  position-y={0.3}
 		/>
 		<Text
-		  maxWidth={2}
+		  maxWidth={5.8}
 		  anchorX={"left"}
 		  anchorY={"top"}
 		  fontSize={0.2}
-		  position={[-1, -0.4, 0]}
+		  position={[-2.8, -1.5, 0]}
 		>
 		  {project.title.toUpperCase()}
 		</Text>
 		<Text
-		  maxWidth={2}
+		  maxWidth={5.8}
 		  anchorX={"left"}
 		  anchorY={"top"}
-		  fontSize={0.1}
-		  position={[-1, -0.6, 0]}
+		  fontSize={0.15}
+		  position={[-2.8, -1.8, 0]}
 		>
 		  {project.description}
 		</Text>
@@ -64,17 +65,40 @@ const Project = (props) => {
   export const currentProjectAtom = atom(Math.floor(projectsData.length / 2));
 export const selectedLanguageAtom = atom("All");
 
-export const Projects = () => {
+export const Projects = (props) => {
   const { viewport } = useThree();
   const [currentProject] = useAtom(currentProjectAtom);
   const [selectedLanguage] = useAtom(selectedLanguageAtom);
+  const { section } = props;
+ 
+  // Detect if the device is mobile
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    // Update the isMobile state on window resize
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Define scale values for mobile and desktop
+  const scaleValue = isMobile ? 0.5 : 1;
 
   const filteredProjects = selectedLanguage === "All"
     ? projectsData
     : projectsData.filter(project => project.languages.includes(selectedLanguage));
 
   return (
-    <group position-y={-viewport.height * 4 + 1}>
+	<motion.group 
+	position-y={-viewport.height * 4 + 1}
+	scale={section === 4 ? scaleValue : 0}
+	// Optional: Add animations for smooth transitions
+	animate={{ scale: section === 4 ? scaleValue : 0 }}
+	transition={{ duration: 0.5 }}
+  >
       {projectsData.map((project, index) => {
         const isVisible = filteredProjects.includes(project);
         
@@ -87,7 +111,7 @@ export const Projects = () => {
             key={"project_" + index}
             position={[filteredIndex * 2.5, 0, -3]}
             animate={{
-              x: 0 + (filteredIndex - filteredProjects.indexOf(projectsData[currentProject])) * 2.5,
+              x: 0 + (filteredIndex - filteredProjects.indexOf(projectsData[currentProject])) * 8,
               y: currentProject === index ? 0 : -0.1,
               z: currentProject === index ? -2 : -3,
               rotateX: currentProject === index ? 0 : -Math.PI / 3,
@@ -98,6 +122,6 @@ export const Projects = () => {
           </motion.group>
         );
       })}
-    </group>
+    </motion.group>
   );
 };
