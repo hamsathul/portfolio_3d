@@ -96,9 +96,9 @@ export default ExperienceTimeline;
 const AviationWorkExperienceSection = () => {
 	return (
 		<Section>
-		<div className="flex flex-col md:flex-row w-full items-center md:items-start">
+		<div className="flex flex-col md:flex-row w-full items-center md:items-start md:mt-12 md:pt-10">
 		  <motion.div className="w-full md:w-1/2 h-3/4 md:h-full" whileInView={"visible"}>
-			<h2 className="text-3xl md:text-5xl font-bold text-white mb-6 md:mb-12 text-center">
+			<h2 className="text-3xl md:text-5xl font-bold text-white mb-2 text-center">
 			  Aviation Experience
 			</h2>
 			<div className=" md:space-y-16 w-1/2 md:w-full">
@@ -112,12 +112,12 @@ const AviationWorkExperienceSection = () => {
  const EnterpreunershipWorkExperienceSection = () => {
   return (
     <Section mobileTop={true}>
-      <div className="flex flex-col md:flex-row w-full items-center md:items-start md:mt-12">
+      <div className="flex flex-col md:flex-row w-full items-center md:items-start md:mt-12 md:pt-10">
         <motion.div className="w-full md:w-1/2 h-3/4 md:h-full" whileInView="visible">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-3 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-2 text-center">
             My Business Ventures
           </h2>
-          <div className="space-y-2 md:space-y-5 w-1/2 md:w-full">
+          <div className=" w-1/2 md:w-full">
             <ExperienceTimeline experiences={entrepreneurshipExperience} />
           </div>
         </motion.div>

@@ -40,7 +40,7 @@ export const Experience = (props) => {
 		3: { cameraPosX: 0, cameraLookX: 0 },
 		4: { cameraPosX: 0, cameraLookX: 0 },
 		5: { cameraPosX: -4, cameraLookX: 7 },
-		6: { cameraPosX: -3, cameraLookX: 15 },
+		6: { cameraPosX: -4, cameraLookX: 7 },
 	};
 
 	
@@ -139,7 +139,7 @@ export const Experience = (props) => {
 			scaleZ: isMobile ? 0.5: 0.75,
 		},
 		2: {
-			y: -viewport.height * 2 + 1 ,
+			y: isMobile ? -viewport.height * 2 + 2.2 :-viewport.height * 2 + 0.8 ,
 			x: isMobile ? 0.3 : 1.8,
 			z: isMobile ? 5:5.7,
 			rotateX: 0,
@@ -174,7 +174,7 @@ export const Experience = (props) => {
 
 		5: {
 		
-			y: isMobile ? -viewport.height * 5 + 1.6 :-viewport.height * 5 + 1.5,
+			y: isMobile ? -viewport.height * 5 + 1.8 :-viewport.height * 5 + 1.5,
 			x: isMobile ? 0.3 : 1,
 			z: 7,
 			rotateX: 0,
@@ -188,10 +188,10 @@ export const Experience = (props) => {
 		
 		6: {
 			x: isMobile ? 0.3: 0.5,
-			y: isMobile ? -viewport.height *6 + 2.725 : -viewport.height *6 + 1.5,
+			y: isMobile ? -viewport.height *6 + 2.48 : -viewport.height *6 + 1.5,
 			z: 7.5,
 			rotateX: 0,
-			rotateY: -Math.PI/5,
+			rotateY: isMobile ? -Math.PI/5 :-Math.PI/5,
 			rotateZ: 0,
 			scaleX: isMobile ? 0.15: 0.75,
 			scaleY: isMobile ? 0.15: 0.75,
@@ -238,7 +238,7 @@ export const Experience = (props) => {
 	<motion.group
       position={[
         isMobile ? 0.6 : 1, 
-        isMobile ? -viewport.height * 2 + 1 : -viewport.height * 2 + 1, 
+        isMobile ? -viewport.height * 2 + 2.2 : -viewport.height * 2 + 0.8, 
         isMobile ? 4.5 : 4.5 
       ]}
       scale={isMobile ? [0.017, 0.017, 0.017] : [0.04, 0.04, 0.04]} 
