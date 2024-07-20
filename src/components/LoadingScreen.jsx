@@ -23,7 +23,7 @@ export const LoadingScreen = ({ started, setStarted }) => {
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
         >
-          <div className="text-4xl md:text-9xl font-bold text-indigo-200 relative">
+          <div className="text-2xl sm:text-3xl md:text-5xl font-bold text-indigo-200 relative">
             <motion.div
               className="absolute left-0 top-0 overflow-hidden truncate text-clip"
               initial={{ width: "0%" }}

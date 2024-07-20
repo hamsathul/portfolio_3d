@@ -55,16 +55,16 @@ const languages = [
 export const SkillSection = () => {
     return (
         <Section>
-            <div className="flex flex-col md:flex-row w-full scale-80 md:scale-100 m-4">
-                <motion.div className="w-full md:w-5/12" whileInView={"visible"}>
-                    <h2 className="text-3xl md:text-5xl font-bold text-white">
+            <div className="flex flex-col md:flex-row w-full scale-60 md:scale-100 m-4">
+                <motion.div className="w-3/4 md:w-5/12" whileInView={"visible"}>
+                    <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white">
                         Skills
                     </h2>
-                    <div className="mt-8 space-y-4 w-1/2 md:w-full">
+                    <div className="mt-4 space-y-4 w-3/4 md:w-full">
                         {skills.map((skill, index) => (
                             <div className="w-full" key={index}>
                                 <motion.h3 
-                                    className="text-lg md:text-xl font-bold text-gray-100"
+                                    className="text-sm md:text-xl font-base md:font-bold text-gray-100"
                                     initial={{
                                         opacity: 0,
                                     }}
@@ -108,14 +108,14 @@ export const SkillSection = () => {
                 <div className="hidden md:block w-5/12" />
                 
                 <motion.div className='w-full md:w-5/12' whileInView={"visible"}>
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mt-8 md:mt-0">
+                    <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mt-8 md:mt-0">
                         Languages
                     </h2>
-                    <div className="mt-8 space-y-4 w-1/2 md:w-full">
+                    <div className="mt-4 space-y-4 w-1/2 sm:w-3/4 md:full">
                         {languages.map((lng, index) => (
                             <div className="w-full" key={index}>
                                 <motion.h3 
-                                    className="text-lg md:text-xl font-bold text-gray-100"
+                                    className="text-sm md:text-xl font-base md:font-bold text-gray-100"
                                     initial={{
                                         opacity: 0,
                                     }}

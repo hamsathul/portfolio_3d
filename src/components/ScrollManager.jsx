@@ -12,6 +12,7 @@ export const ScrollManager = (props) => {
 
 	data.fill.classList.add("top-0")
 	data.fill.classList.add("absolute")
+	
 	useEffect(() => {
 		gsap.to(data.el, {
 			duration: 1,
