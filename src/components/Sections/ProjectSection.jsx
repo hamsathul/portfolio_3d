@@ -37,7 +37,7 @@ export const ProjectSection = () => {
 
     return (
         <Section mobileTop>
-            <div className='flex flex-col w-full h-full gap-8 items-center justify-center px-4 py-8 mt-96'>
+            <div className='flex flex-col w-full h-full gap-8 items-center justify-center px-4 py-8 mt-96 scale-75 md:scale-100'>
                 <div className='flex flex-wrap gap-2 justify-center mt-12'>
                     {languages.map((lang) => (
                         <button
@@ -53,9 +53,9 @@ export const ProjectSection = () => {
                         </button>
                     ))}
                 </div>
-                <div className='flex flex-col sm:flex-row w-full gap-4 items-center justify-center'>
+                <div className='flex flex-row w-full gap-4 items-center justify-center'>
                     <button
-                        className='hover:text-indigo-600 transition-colors text-white text-lg'
+                        className='hover:text-indigo-600 transition-colors text-white text-md md:text-lg '
                         onClick={previousProject}
                         disabled={filteredProjects.length <= 1}
                     >
@@ -65,7 +65,7 @@ export const ProjectSection = () => {
                         Projects
                     </h2>
                     <button
-                        className='hover:text-indigo-600 transition-colors text-white text-lg'
+                        className='hover:text-indigo-600 transition-colors text-white text-md md:text-lg'
                         onClick={nextProject}
                         disabled={filteredProjects.length <= 1}
                     >

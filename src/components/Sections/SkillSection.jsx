@@ -55,7 +55,7 @@ const languages = [
 export const SkillSection = () => {
     return (
         <Section>
-            <div className="flex flex-col md:flex-row w-full">
+            <div className="flex flex-col md:flex-row w-full scale-80 md:scale-100 m-4">
                 <motion.div className="w-full md:w-5/12" whileInView={"visible"}>
                     <h2 className="text-3xl md:text-5xl font-bold text-white">
                         Skills

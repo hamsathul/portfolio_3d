@@ -8,7 +8,7 @@ export const ContactSection = () => {
 
 	return (
 		<Section>
-			<div className='flex flex-col items-center justify-center my-auto'>
+			<div className='flex flex-col items-center justify-center my-auto scale-75 md:scale-100'>
 			<h2 className="text-3xl md:text-5xl text-white font-bold items-center justify-center my-10">Contact Me</h2>
 			<div className="flex items-center justify-center my-4">
 				<a href="https://facebook.com/hamsathul/" target="_blank" rel="noopener noreferrer" className="text-indigo-400 mx-4" aria-label="Facebook">
