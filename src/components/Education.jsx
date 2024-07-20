@@ -71,12 +71,12 @@ const Education = ( {educationData}) => {
 	const EducationSection = () => {
 		return (
 			<Section>
-				<div className="flex flex-col md:flex-row w-full items-center md:items-start md:mt-12 md:pt-10">
-			<motion.div className="w-full md:w-1/2 h-3/4 md:h-full" whileInView={"visible"}>
+				<div className="flex flex-col md:flex-row w-full items-center md:items-start m-0  md:mt-12 md:pt-10">
+			<motion.div className="w-full md:w-1/2 " whileInView={"visible"}>
 			  <h2 className="text-3xl md:text-5xl font-bold text-white mb-2 text-center">
-				Education & Certifications
+				Education
 			  </h2>
-			  <div className=" w-1/2 md:w-full">
+			  <div className=" w-8/12 md:w-full">
 				<Education educationData={educationData} />
 	
 			  </div>

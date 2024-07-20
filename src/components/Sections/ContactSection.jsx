@@ -24,7 +24,7 @@ export const ContactSection = () => {
 					<Linkedin size={32} />
 				</a>
 			</div>
-			<div className="my-10 p-8 rounded-md bg-white bg-opacity-50 w-96 max-w-full items-center">
+			<div className="my-10 p-8 rounded-md bg-white bg-opacity-50 w-84 md:w-96 max-w-full items-center">
 				{state.succeeded ? (
 					<p className="text-green-500">Thank you for your message. I will get back to you soon.</p>
 				) : (

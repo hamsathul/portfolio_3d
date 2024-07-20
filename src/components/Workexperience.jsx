@@ -56,13 +56,13 @@ const aviationExperience = [
   const ExperienceTimeline = ({ experiences, title }) => {
 	return (
 	  <div className="w-full max-w-2xl md:max-w-5xl mx-auto mb-8 md:mb-20 p-2 md:p-4">
-		<h3 className="text-xl md:text-3xl font-bold text-white mb-4 md:mb-12 text-center">{title}</h3>
+		<h3 className="text-xl md:text-3xl font-bold text-white mb-1 md:mb-12 text-center">{title}</h3>
 		<div className="relative">
 		  <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-indigo-700 hidden md:block"></div>
 		  {experiences.map((exp, index) => (
 			<motion.div
 			  key={index}
-			  className={`mb-4 md:mb-12 flex flex-col md:flex-row items-center md:items-start w-full ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'}`}
+			  className={`mb-1 md:mb-12 flex flex-col md:flex-row items-center md:items-start w-full ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'}`}
 			  initial={{ opacity: 0, x: index % 2 === 0 ? 100 : -100 }}
 			  whileInView={{ opacity: 1, x: 0 }}
 			  transition={{ duration: 0.8, delay: index * 0.2 }}
@@ -112,12 +112,12 @@ const AviationWorkExperienceSection = () => {
  const EnterpreunershipWorkExperienceSection = () => {
   return (
     <Section mobileTop={true}>
-      <div className="flex flex-col md:flex-row w-full items-center md:items-start md:mt-12 md:pt-10">
+      <div className="flex flex-col md:flex-row w-full items-start md:items-start md:mt-12 md:pt-10">
         <motion.div className="w-full md:w-1/2 h-3/4 md:h-full" whileInView="visible">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-2 text-center">
             My Business Ventures
           </h2>
-          <div className=" w-1/2 md:w-full">
+          <div className=" w-3/4 md:w-full ">
             <ExperienceTimeline experiences={entrepreneurshipExperience} />
           </div>
         </motion.div>
