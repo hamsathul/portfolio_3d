@@ -8,9 +8,9 @@ export const ContactSection = () => {
 
 	return (
 		<Section>
-			<div className='flex flex-col items-center justify-center my-auto scale-75 md:scale-100'>
-			<h2 className="text-3xl md:text-5xl text-white font-bold items-center justify-center my-10">Contact Me</h2>
-			<div className="flex items-center justify-center my-4">
+			<div className='flex flex-col items-center justify-center my-auto '>
+			<h2 className="text-3xl md:text-5xl text-white font-bold items-center justify-center my-2">Contact Me</h2>
+			<div className="flex items-center justify-center my-2.5">
 				<a href="https://facebook.com/hamsathul/" target="_blank" rel="noopener noreferrer" className="text-indigo-400 mx-4" aria-label="Facebook">
 					<Facebook size={32} />
 				</a>
@@ -24,7 +24,7 @@ export const ContactSection = () => {
 					<Linkedin size={32} />
 				</a>
 			</div>
-			<div className="mt-6 mb-16 p-8 bg-transparent border-4 rounded-md border-indigo-600 w-84 md:w-96 max-w-full items-center">
+			<div className="mx-auto p-4 bg-transparent border-4 rounded-md border-indigo-600 w-72 md:w-96 max-w-full items-center">
 				{state.succeeded ? (
 					<p className="text-green-500">Thank you for your message. I will get back to you soon.</p>
 				) : (

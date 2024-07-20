@@ -4,7 +4,7 @@ Command: npx gltfjsx@6.2.18 public/models/haris.glb
 */
 
 import React, { useEffect, useRef } from 'react'
-import { useAnimations, useFBX, useGLTF, Wireframe } from '@react-three/drei'
+import { useAnimations, useFBX, useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useControls } from 'leva';
 import * as THREE from 'three'
@@ -12,10 +12,10 @@ import * as THREE from 'three'
 
 export function Avatar(props) {
 	const { animation, wireFrame } = props;
-	const { headFollow, cursorFollow } = useControls({
-		headFollow: false,
-		cursorFollow: false
-	})
+	// const { headFollow, cursorFollow } = useControls({
+	// 	headFollow: false,
+	// 	cursorFollow: false
+	// })
 	const group = useRef();
   const { nodes, materials } = useGLTF('/models/haris_tshirt.glb')
   const { animations: typingAnimation } = useFBX('/animations/Typing.fbx')
@@ -53,16 +53,16 @@ export function Avatar(props) {
     group,
   )
 
-  useFrame((state) => {
-	if(headFollow){
+//   useFrame((state) => {
+// 	if(headFollow){
 
-		group.current.getObjectByName("Head").lookAt(state.camera.position)
-	}
-	if(cursorFollow){
-		const target = new THREE.Vector3(state.mouse.x, state.mouse.y, 1)
-		group.current.getObjectByName("Spine2").lookAt(target)
-	}
-  })
+// 		group.current.getObjectByName("Head").lookAt(state.camera.position)
+// 	}
+// 	if(cursorFollow){
+// 		const target = new THREE.Vector3(state.mouse.x, state.mouse.y, 1)
+// 		group.current.getObjectByName("Spine2").lookAt(target)
+// 	}
+//   })
 
 
   useEffect(() => {
@@ -76,6 +76,7 @@ export function Avatar(props) {
 		material.wireframe = wireFrame
 	})
   },[wireFrame]);
+
   return (
     <group {...props} ref={group} dispose={null}>
 		<group rotation-x={-Math.PI/2}>

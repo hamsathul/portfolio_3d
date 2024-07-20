@@ -1,4 +1,4 @@
-import { ContactShadows, Environment, Float, MeshDistortMaterial, MeshWobbleMaterial, OrbitControls, Sky } from "@react-three/drei";
+
 import { Avatar } from "./Avatar";
 import { useControls } from "leva";
 import { Office } from "./Office";
@@ -33,12 +33,12 @@ export const Experience = (props) => {
 
 	const sectionAnimations = {
 		0: { cameraPosX: -5, cameraLookX: 5 },
-		1: { cameraPosX: -4, cameraLookX: 7 },
+		1: { cameraPosX: -4, cameraLookX: 0 },
 		2: { cameraPosX: -5, cameraLookX: 5 },
 		3: { cameraPosX: 0, cameraLookX: 0 },
 		4: { cameraPosX: 0, cameraLookX: 0 },
-		5: { cameraPosX: -4, cameraLookX: 7 },
-		6: { cameraPosX: -4, cameraLookX: 7 },
+		5: { cameraPosX: -4, cameraLookX: 0 },
+		6: { cameraPosX: -1, cameraLookX: 7 },
 	};
 
 	useEffect(() => {
@@ -74,7 +74,8 @@ export const Experience = (props) => {
 
 	useFrame((state) => {
 		state.camera.position.x = cameraPositionX.get();
-		state.camera.lookAt(cameraLookAtX.get(), 0, 0);
+		const lookAtVector = new THREE.Vector3(cameraLookAtX.get(), 0, 0);
+		state.camera.lookAt(lookAtVector);
 
 		let curSection = Math.floor(data.scroll.current * data.pages);
 
@@ -132,7 +133,7 @@ export const Experience = (props) => {
 					},
 					3: {
 						y: isMobile ? -viewport.height * 3 + 1.6 : isTablet ? -viewport.height * 3 + 1.2 : -viewport.height * 3 + 0.9,
-						x: isMobile ? 0.3 : isTablet ? 0.2 : 0,
+						x: isMobile ? 0.4 : isTablet ? 0.2 : 0,
 						z: 7,
 						rotateX: 0,
 						rotateY: isMobile ? -Math.PI / 12 : isTablet ? -Math.PI / 16 : 0,
@@ -142,8 +143,8 @@ export const Experience = (props) => {
 						scaleZ: isMobile ? 0.5 : isTablet ? 0.65 : 0.75,
 					},
 					4: {
-						x: isMobile ? -1 : isTablet ? -2 : -3.5,
-						y: -viewport.height * 4 - 1,
+						x: isMobile ? -1.2 : isTablet ? -2 : -3.5,
+						y: isMobile ?  -viewport.height * 4 - 2.3:-viewport.height * 4 - 1,
 						z: 0,
 						rotateX: 0,
 						rotateY: Math.PI / 2,
@@ -165,7 +166,7 @@ export const Experience = (props) => {
 					},
 					6: {
 						x: isMobile ? 0.35 : isTablet ? 0.4 : 0.5,
-						y: isMobile ? -viewport.height * 6 + 2.48 : isTablet ? -viewport.height * 6 + 1.65 : -viewport.height * 6 + 1.5,
+						y: isMobile ? -viewport.height * 6 + 2.6 : isTablet ? -viewport.height * 6 + 1.65 : -viewport.height * 6 + 1.5,
 						z: 7.5,
 						rotateX: 0,
 						rotateY: isMobile ? -Math.PI / 5 : isTablet ? -Math.PI / 6 : -Math.PI / 5,
@@ -176,7 +177,7 @@ export const Experience = (props) => {
 					},
 				}}
 			>
-				<Avatar animation={characterAnimation} />
+				<Avatar animation={characterAnimation}/>
 			</motion.group>
 
 			<ambientLight intensity={1} />

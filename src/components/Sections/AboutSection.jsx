@@ -51,7 +51,7 @@ export const AboutSection = (props) => {
 						duration: 1,
 						delay: 1.5,
 					}}
-					onClick={() => setSection(3)}
+					onClick={() => setSection(6)}
 				>
 				Contact Me
 			</motion.button>

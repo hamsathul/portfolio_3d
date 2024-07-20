@@ -40,25 +40,25 @@ const Education = ( {educationData}) => {
 			{educationData.map((edu, index) => (
 			  <motion.div
 				key={index}
-				className={`mb-4 md:mb-12 flex flex-col md:flex-row items-center md:items-start w-full ${index % 2 === 0 ? 'justify-center md:justify-end' : 'justify-center md:justify-start'}`}
+				className={`mb-2 md:mb-12 flex flex-col md:flex-row items-center md:items-start w-full ${index % 2 === 0 ? 'justify-center md:justify-end' : 'justify-center md:justify-start'}`}
 				initial={{ opacity: 0, x: index % 2 === 0 ? 100 : -100 }}
 				whileInView={{ opacity: 1, x: 0 }}
 				transition={{ duration: 0.8, delay: index * 0.2 }}
 			  >
-				<div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'text-left md:text-right md:pr-8' : 'text-left md:text-left md:pl-8'}`}>
+				<div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'text-center md:text-right md:pr-8' : 'text-center md:text-left md:pl-8'}`}>
 				<p className="text-sm md:text-xl text-white font-semibold">{edu.institution}</p>
 				  <p className="text-sm md:text-lg text-indigo-400 italic">{edu.degree}</p>
 				  
 				</div>
 				<div className="w-full md:w-4/12 flex flex-col items-center">
-				<div className="w-2.5 md:w-4 h-2.5 md:h-4 bg-indigo-500 rounded-full border-2 md:border-4 border-indigo-700"></div>
+				<div className="w-2.5 md:w-4 h-2.5 md:h-4 bg-indigo-500 rounded-full border-2 md:border-4 border-indigo-700 hidden md:block"></div>
 				<div className="w-0.5 h-full bg-gray-800 "></div>
 				<p className={`bg-indigo-700 text-gray-100 text-xs md:text-sm py-0.5 md:py-1 px-1 md:px-3 rounded mt-1 md:mt-2 ${edu.year.includes("present") ? 'ml-1 md:ml-4' : ''}`}>
                 {edu.year}
               </p>
 				</div>
-				<div className={`w-full md:w-5/12 bg-transparent border-2 border-indigo-600  p-2 md:p-6 rounded-lg shadow-sm md:shadow-lg ${index % 2 === 0 ? 'text-center md:text-left md:pl-8' : 'text-center md:text-right md:pr-8'}`}>
-				<p className="text-xs  sm:text-md md:font-semibold text-white">{edu.description}</p>
+				<div className={`w-full md:w-5/12 bg-transparent border-2 border-indigo-600  p-1.5 md:p-6 rounded-lg shadow-sm md:shadow-lg ${index % 2 === 0 ? 'text-center md:text-left md:pl-8' : 'text-center md:text-right md:pr-8'}`}>
+				<p className="text-xs  sm:text-md font-light md:font-semibold text-white">{edu.description}</p>
 				</div>
 			  </motion.div>
 			))}
@@ -71,12 +71,12 @@ const Education = ( {educationData}) => {
 	const EducationSection = () => {
 		return (
 			<Section>
-				<div className="flex flex-col scale-75 md:scale-100 md:flex-row w-full items-start md:items-start mt-10  md:mt-12 md:pt-10">
-			<motion.div className="w-full sm:w-3/4 " whileInView={"visible"}>
-			  <h2 className="text-3xl md:text-5xl font-bold text-white mb-2 text-start">
+				<div className="flex flex-col md:flex-row w-full justify-center items-center md:items-start mb-1 mt-4 md:mt-12">
+			<motion.div className="w-full items-center" whileInView={"visible"}>
+			  <h2 className="text-xl md:text-5xl font-bold text-white mb-2 text-left">
 				Education
 			  </h2>
-			  <div className=" w-8/12 md:w-full">
+			  <div className=" space-y-2 md:space-y-5 w-9/12 sm:w-3/4 mt-2">
 				<Education educationData={educationData} />
 	
 			  </div>
