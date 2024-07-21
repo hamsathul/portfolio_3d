@@ -3,6 +3,12 @@ import { Section } from "./Interface";
 
 const educationData = [
 	{
+		institution: "Hack The Box Academy",
+		degree: "Bug Bounty and Penetration Testing",
+		year: "2024 - present",
+		description: "Specializing in the cybersecurity domains of bug bounty and penetration testing."
+	},
+	{
 		institution: "42 Abudhabi, UAE",
 		degree: "Computer Science",
 		year: "2022 - present",
