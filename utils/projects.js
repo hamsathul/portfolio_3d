@@ -64,6 +64,13 @@ export const projectsData = [
 		languages: ["JavaScript", "Next.js", "Three.js"],
 	},
 	{
+		title: "Nextjs Dashboard",
+		url: "https://nextjs-dashboard-lime-alpha-54.vercel.app/dashboard",
+		image: "/projects/nextdashboard.jpg",
+		description: "A simple dashboard built using Next.js and postgres.",
+		languages: ["Typescript", "Next.js", "Postgres"],
+	},
+	{
 		title: "Cub3D",
 		url: "https://github.com/samiyazbr/Cub3D",
 		image: "/projects/42logo.jpg",
