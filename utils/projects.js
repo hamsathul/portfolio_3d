@@ -99,17 +99,17 @@ export const projectsData = [
 		languages: ["JavaScript", "Express.js", "MongoDb", "React"],
 	},
 	{
-		title: "Chat with Documents - AI",
+		title: "DocsChat - AI",
 		url: "https://github.com/hamsathul/docs_chat",
-		image: "/projects/streamlit.webp",
-		description: "A python webapp to chat with a given document.",
+		image: "/projects/docschat.png",
+		description: "An OpenAI based webapp to chat with a given document for regarding its content using RAG.",
 		languages: ["Python", "Streamlit",  "AI"],
 	},
 	{
 		title: "Skillbridge - AI",
 		url: "https://github.com/hamsathul/skillbridge",
-		image: "/projects/streamlit.webp",
-		description: "A python webapp of AI based questionnare to find the percentage of Enterpreunership vs Employee mentality.",
+		image: "/projects/skillbridge.png",
+		description: "An OpenAI based webapp wherin user is asked questions based on a random questionnare to find the percentage of Enterpreunership vs Employee mentality.",
 		languages: ["Python", "Streamlit",  "AI"],
 	},
 	{
