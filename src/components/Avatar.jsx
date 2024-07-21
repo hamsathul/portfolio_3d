@@ -26,6 +26,7 @@ export function Avatar(props) {
   const { animations: boredAnimation } = useFBX('/animations/Bored.fbx')
   const { animations: happyAnimation } = useFBX('/animations/HappyIdle.fbx')
   const { animations: wavingAnimation } = useFBX('/animations/Waving.fbx')
+  const { animations: stittingAnimation } = useFBX('/animations/sitting.fbx')
 
 
 
@@ -37,6 +38,7 @@ export function Avatar(props) {
   boredAnimation[0].name = 'Bored'
   happyAnimation[0].name = 'Happy'
   wavingAnimation[0].name = 'Waving'
+  stittingAnimation[0].name = 'Sitting'
 
 
   const { actions } = useAnimations(
@@ -49,6 +51,7 @@ export function Avatar(props) {
       boredAnimation[0],
       happyAnimation[0],
       wavingAnimation[0],
+	  stittingAnimation[0],
     ],
     group,
   )

@@ -63,7 +63,7 @@ export const Experience = (props) => {
 			} else if (section === 3) {
 				setCharacterAnimation('Bored');
 			} else if (section === 4) {
-				setCharacterAnimation('StandingCrouchingInspection');
+				setCharacterAnimation('Sitting');
 			} else if (section === 5) {
 				setCharacterAnimation('Happy');
 			} else if (section === 6) {
@@ -143,15 +143,15 @@ export const Experience = (props) => {
 						scaleZ: isMobile ? 0.5 : isTablet ? 0.65 : 0.75,
 					},
 					4: {
-						x: isMobile ? -1.2 : isTablet ? -2 : -3.5,
-						y: isMobile ?  -viewport.height * 4 - 2.3:-viewport.height * 4 - 1,
+						x: isMobile ? -0.5 : isTablet ? -2 : -3.5,
+						y: isMobile ?  -viewport.height * 4 - 0.8 :-viewport.height * 4 - 1,
 						z: 0,
 						rotateX: 0,
-						rotateY: Math.PI / 2,
+						rotateY: isMobile ? Math.PI/4 : Math.PI / 2,
 						rotateZ: 0,
-						scaleX: isMobile ? 1 : isTablet ? 1 : 1,
-						scaleY: isMobile ? 1 : isTablet ? 1 : 1,
-						scaleZ: isMobile ? 1 : isTablet ? 1 : 1,
+						scaleX: isMobile ? 0.8 : isTablet ? 1 : 1,
+						scaleY: isMobile ? 0.8 : isTablet ? 1 : 1,
+						scaleZ: isMobile ? 0.8 : isTablet ? 1 : 1,
 					},
 					5: {
 						y: isMobile ? -viewport.height * 5 + 1.5 : isTablet ? -viewport.height * 5 + 1.3 : -viewport.height * 5 + 1.5,
@@ -165,15 +165,15 @@ export const Experience = (props) => {
 						scaleZ: isMobile ? 0.5 : isTablet ? 0.65 : 0.75,
 					},
 					6: {
-						x: isMobile ? 0.35 : isTablet ? 0.4 : 0.5,
+						x: isMobile ? 0.3 : isTablet ? 0.4 : 0.5,
 						y: isMobile ? -viewport.height * 6 + 2.6 : isTablet ? -viewport.height * 6 + 1.65 : -viewport.height * 6 + 1.5,
 						z: 7.5,
 						rotateX: 0,
-						rotateY: isMobile ? -Math.PI / 5 : isTablet ? -Math.PI / 6 : -Math.PI / 5,
+						rotateY: isMobile ? -Math.PI / 8 : isTablet ? -Math.PI / 6 : -Math.PI / 5,
 						rotateZ: 0,
-						scaleX: isMobile ? 0.2 : isTablet ? 0.6 : 0.75,
-						scaleY: isMobile ? 0.2 : isTablet ? 0.6 : 0.75,
-						scaleZ: isMobile ? 0.2 : isTablet ? 0.6 : 0.75,
+						scaleX: isMobile ? 0.15 : isTablet ? 0.6 : 0.75,
+						scaleY: isMobile ? 0.15 : isTablet ? 0.6 : 0.75,
+						scaleZ: isMobile ? 0.15 : isTablet ? 0.6 : 0.75,
 					},
 				}}
 			>
