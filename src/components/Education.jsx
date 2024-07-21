@@ -6,13 +6,13 @@ const educationData = [
 		institution: "Hack The Box Academy",
 		degree: "Bug Bounty and Penetration Testing",
 		year: "2024 - present",
-		description: "Specializing in the cybersecurity domains of bug bounty and penetration testing."
+		description: "Specializing in the cybersecurity domains of bug bounty hunting and penetration testing."
 	},
 	{
 		institution: "42 Abudhabi, UAE",
 		degree: "Computer Science",
 		year: "2022 - present",
-		description: "42 network of schools is rated as the top coding school in the world for software development."
+		description: "Specializing in indepth learning of coding skills."
 	},
 	{
 		institution: "NALSAR, Hyderabad, India",
@@ -39,7 +39,7 @@ const educationData = [
 const Education = ( {educationData}) => {
 	return (
 		
-		<div className="w-full max-w-2xl md:max-w-5xl mx-2 mb-8 md:mb-20 p-2 md:p-4 scale-80 md:scale-100">
+		<div className="w-full max-w-2xl md:max-w-5xl mx-2 mb-8 md:mb-20 p-2 md:p-4 scale-85 md:scale-100">
 		  
 		  <div className="relative">
 			<div className="absolute left-1/2  transform -translate-x-1/2 w-0.5 h-full bg-indigo-700 hidden md:block"></div>
@@ -77,12 +77,12 @@ const Education = ( {educationData}) => {
 	const EducationSection = () => {
 		return (
 			<Section>
-				<div className="flex flex-col md:flex-row w-full justify-center items-center md:items-start mb-1 mt-4 md:mt-12">
+				<div className="flex flex-col md:flex-row w-full justify-center items-center md:items-start mb-1 mt-4 md:mt-12 scale-90 md:scale-100">
 			<motion.div className="w-full items-center" whileInView={"visible"}>
 			  <h2 className="text-xl md:text-5xl font-bold text-white mb-2 text-left">
 				Education
 			  </h2>
-			  <div className=" space-y-2 md:space-y-5 w-9/12 sm:w-3/4 mt-2">
+			  <div className=" space-y-2 md:space-y-5 w-10/12 sm:w-3/4 mt-2">
 				<Education educationData={educationData} />
 	
 			  </div>

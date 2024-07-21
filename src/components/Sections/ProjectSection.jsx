@@ -37,7 +37,7 @@ export const ProjectSection = () => {
 
     return (
         <Section mobileTop>
-            <div className='flex flex-col w-full h-full gap-8 items-center justify-center px-4 py-8 mt-96 scale-75 md:scale-100'>
+            <div className='flex flex-col w-full h-full gap-2 md:gap-8 items-center justify-center px-4 py-8 mt-80 md:mt-96 mb-4 scale-75 md:scale-100'>
                 <div className='flex flex-wrap gap-2 justify-center mt-12'>
                     {languages.map((lang) => (
                         <button
