@@ -66,7 +66,7 @@ export const projectsData = [
 	{
 		title: "Nextjs Dashboard",
 		url: "https://nextjs-dashboard-lime-alpha-54.vercel.app/dashboard",
-		image: "/projects/nextdashboard.jpg",
+		image: "/projects/nextdashboard.png",
 		description: "A simple dashboard built using Next.js and postgres.",
 		languages: ["Typescript", "Next.js", "Postgres"],
 	},
