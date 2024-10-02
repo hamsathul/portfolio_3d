@@ -5,13 +5,26 @@ import { Office } from "./Office";
 import { motion } from 'framer-motion-3d'
 import { useFrame, useThree } from "@react-three/fiber";
 import { animate, useMotionValue } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, Suspense } from "react";
 import { framerMotionConfig } from "../../config";
 import * as THREE from 'three';
-import { useScroll } from "@react-three/drei";
+import { useScroll, useProgress, Html } from "@react-three/drei";
 import { Projects } from "./Projects";
 import { Background } from "./Background";
 import { Airplane } from "./Airplane";
+import { LoaderPinwheelIcon } from "lucide-react";
+
+function LoadingSpinner() {
+	const { active, progress } = useProgress();
+	return active && (
+	  <Html center>
+		<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+		  <LoaderPinwheelIcon size={32} className="text-indigo-600 animate-spin" />
+		  <p style={{ marginTop: '10px' }}>Loading: {progress.toFixed(0)}%</p>
+		</div>
+	  </Html>
+	);
+  }
 
 export const Experience = (props) => {
 	const { menuOpened } = props;
@@ -181,6 +194,7 @@ export const Experience = (props) => {
 			</motion.group>
 
 			<ambientLight intensity={1} />
+			
 			<motion.group
 				position={[
 					isMobile ? 0 : isTablet ? 1.2 : 1.5 * officeScaleRatio,
@@ -200,13 +214,15 @@ export const Experience = (props) => {
 					duration: 0.8,
 				}}
 			>
-				<Office section={section}/>
-				<group 
-					ref={characterContainerAboutRef}
-					name="CharacterSpot" 
-					position={[-0.05, 0.23, -0.673]} 
-					rotation={[-Math.PI, 0.53, -Math.PI]}
-				/>
+				<Suspense fallback={<LoadingSpinner />}>
+					<Office section={section} />
+					<group 
+						ref={characterContainerAboutRef}
+						name="CharacterSpot" 
+						position={[-0.05, 0.23, -0.673]} 
+						rotation={[-Math.PI, 0.53, -Math.PI]}
+					/>
+					</Suspense>
 			</motion.group>
 
 			<Projects section={section} isMobile={isMobile}/>
